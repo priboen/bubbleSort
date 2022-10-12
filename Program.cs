@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,28 +16,24 @@ namespace bubbleSort
         {
             while (true)
             {
-                Console.WriteLine("Masukan banyaknya elemen pada array : ");
+                Console.Write("Masukan banyaknya elemen pada array : ");
                 string s = Console.ReadLine();
                 n = Int32.Parse(s);
                 if (n <= 20)
                     break;
                 else
-                {
                     Console.WriteLine("\n Array dapat mempunyai maksimal 20 element. \n");
+            }
+            Console.WriteLine("");
+            Console.WriteLine("-----------------------------------");
+            Console.WriteLine("Masukan elemen pada array : ");
+            Console.WriteLine("-----------------------------------");
 
-                }
-
-                Console.WriteLine("");
-                Console.WriteLine("-----------------------------------");
-                Console.WriteLine("Masukan elemen pada array : ");
-                Console.WriteLine("-----------------------------------");
-
-                for (int i = 0; i < n; i++)
-                {
-                    Console.Write("<" +  (i + 1) + ">");
-                    string s1 = Console.ReadLine();
-                    a[1] = Int32.Parse(s1);
-                }
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write("<" + (i + 1) + ">");
+                string s1 = Console.ReadLine();
+                a[i] = Int32.Parse(s1);
             }
         }
         public void display()
@@ -58,9 +55,9 @@ namespace bubbleSort
         {
             for (int i = 0; i < n; i++)
             {
-                for (int j=0; j < n - 1; j++)
+                for (int j =0; j < n - i; j++)
                 {
-                    if (a[j] > a[j + 1])
+                    if (a[j] < a[j + 1])
                     {
                         int temp;
                         temp = a[j];
